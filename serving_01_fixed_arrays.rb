@@ -17,9 +17,9 @@ require_relative "kamayan"
 # to implement other familiar data sets.
 class Serving01FixedArrays < Attestify::Test
   def test_a_fixed_array_has_a_size_specified_when_it_is_created
-    assert_equal __, FixedArray.new(0).size
-    assert_equal __, FixedArray.new(1).size
-    assert_equal __, FixedArray.new(42).size
+    assert_equal 0, FixedArray.new(0).size
+    assert_equal 1, FixedArray.new(1).size
+    assert_equal 42, FixedArray.new(42).size
   end
 
   def test_values_can_be_set_and_retrieved
@@ -29,23 +29,23 @@ class Serving01FixedArrays < Attestify::Test
     array[1] = 2
     array[2] = 42
 
-    assert_equal __, array[0]
-    assert_equal __, array[1]
-    assert_equal __, array[2]
+    assert_equal 1, array[0]
+    assert_equal 2, array[1]
+    assert_equal 42, array[2]
   end
 
   def test_initial_values_are_nil
     array = FixedArray.new(3)
-    assert_equal __, array[0]
-    assert_equal __, array[1]
-    assert_equal __, array[2]
+    assert_equal nil, array[0]
+    assert_equal nil, array[1]
+    assert_equal nil, array[2]
   end
 
   def test_getting_and_setting_at_an_index_must_be_within_the_bounds_of_the_initial_size
     array = FixedArray.new(5)
-    assert_raises(___) { array[-1] }
-    assert_raises(___) { array[5] }
-    assert_raises(___) { array[-1] = 1 }
-    assert_raises(___) { array[5] = 42 }
+    assert_raises(IndexError) { array[-1] }
+    assert_raises(IndexError) { array[5] }
+    assert_raises(IndexError) { array[-1] = 1 }
+    assert_raises(IndexError) { array[5] = 42 }
   end
 end
