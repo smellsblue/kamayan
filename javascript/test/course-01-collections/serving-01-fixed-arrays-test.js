@@ -16,9 +16,9 @@
 suite("FixedArray");
 
 test("a fixed array has a size specified when it is created", function() {
-    assert.equal(__, new FixedArray(0).size());
-    assert.equal(__, new FixedArray(1).size());
-    assert.equal(__, new FixedArray(42).size());
+    assert.equal(0, new FixedArray(0).size());
+    assert.equal(1, new FixedArray(1).size());
+    assert.equal(42, new FixedArray(42).size());
 });
 
 test("values can be set and retrieved", function() {
@@ -28,22 +28,22 @@ test("values can be set and retrieved", function() {
     array.set(1, 2);
     array.set(2, 42);
 
-    assert.equal(__, array.get(0));
-    assert.equal(__, array.get(1));
-    assert.equal(__, array.get(2));
+    assert.equal(1, array.get(0));
+    assert.equal(2, array.get(1));
+    assert.equal(42, array.get(2));
 });
 
 test("initial values are null", function() {
     var array = new FixedArray(3);
-    assert.equal(__, array.get(0));
-    assert.equal(__, array.get(1));
-    assert.equal(__, array.get(2));
+    assert.equal(null, array.get(0));
+    assert.equal(null, array.get(1));
+    assert.equal(null, array.get(2));
 });
 
 test("getting and setting at an index must be within the bounds of the initial size", function() {
     var array = new FixedArray(5);
-    assert.throws(function() { array.get(-1); }, ___);
-    assert.throws(function() { array.get(5); }, ___);
-    assert.throws(function() { array.set(-1, 1); }, ___);
-    assert.throws(function() { array.set(5, 42); }, ___);
+    assert.throws(function() { array.get(-1); }, IndexError);
+    assert.throws(function() { array.get(5); }, IndexError);
+    assert.throws(function() { array.set(-1, 1); }, IndexError);
+    assert.throws(function() { array.set(5, 42); }, IndexError);
 });
