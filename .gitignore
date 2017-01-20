@@ -1,1 +1,2 @@
-.bundle
+java/target
+ruby/.bundle
