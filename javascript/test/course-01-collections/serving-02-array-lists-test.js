@@ -38,11 +38,11 @@
 //   +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
 suite("ArrayList");
 
-test.skip("add exists", function() {
+test("add exists", function() {
     assert.methodExists(ArrayList, "add", 1);
 });
 
-test.skip("add increases the size", function() {
+test("add increases the size", function() {
     var list = new ArrayList();
     list.add(42);
     assert.equal(1, list.size());
@@ -50,7 +50,7 @@ test.skip("add increases the size", function() {
     assert.equal(2, list.size());
 });
 
-test.skip("add adds to the end", function() {
+test("add adds to the end", function() {
     var list = new ArrayList();
     list.add(42);
     list.add(43);
@@ -58,18 +58,18 @@ test.skip("add adds to the end", function() {
     assert.equal(43, list.get(1));
 });
 
-test.skip("add returns self so that it is chainable", function() {
+test("add returns self so that it is chainable", function() {
     var list = new ArrayList();
     list.add(42).add(43);
     assert.equal(42, list.get(0));
     assert.equal(43, list.get(1));
 });
 
-test.skip("prepend exists", function() {
+test("prepend exists", function() {
     assert.methodExists(ArrayList, "prepend", 1);
 });
 
-test.skip("prepend increases the size", function() {
+test("prepend increases the size", function() {
     var list = new ArrayList();
     list.prepend(42);
     assert.equal(1, list.size());
@@ -77,7 +77,7 @@ test.skip("prepend increases the size", function() {
     assert.equal(2, list.size());
 });
 
-test.skip("prepend adds to the beginning", function() {
+test("prepend adds to the beginning", function() {
     var list = new ArrayList();
     list.prepend(42);
     list.prepend(43);
@@ -85,14 +85,14 @@ test.skip("prepend adds to the beginning", function() {
     assert.equal(42, list.get(1));
 });
 
-test.skip("prepend returns self so that it is chainable", function() {
+test("prepend returns self so that it is chainable", function() {
     var list = new ArrayList();
     list.prepend(42).prepend(43);
     assert.equal(43, list.get(0));
     assert.equal(42, list.get(1));
 });
 
-test.skip("add and prepend are chainable together", function() {
+test("add and prepend are chainable together", function() {
     var list = new ArrayList();
     list.add(42).add(43).prepend(2).prepend(1);
     assert.equal(1, list.get(0));
@@ -101,27 +101,27 @@ test.skip("add and prepend are chainable together", function() {
     assert.equal(43, list.get(3));
 });
 
-test.skip("chained add and prepend increases the size", function() {
+test("chained add and prepend increases the size", function() {
     var list = new ArrayList();
     list.add(42).add(43).prepend(2).prepend(1);
     assert.equal(4, list.size());
 });
 
-test.skip("add can be called a lot", function() {
+test("add can be called a lot", function() {
     var list = new ArrayList();
     Kamayan.times(100, () => { list.add(42); });
     assert.equal(100, list.size());
     Kamayan.times(100, (i) => { assert.equal(42, list.get(i)); });
 });
 
-test.skip("prepend can be called a lot", function() {
+test("prepend can be called a lot", function() {
     var list = new ArrayList();
     Kamayan.times(100, () => { list.prepend(42); });
     assert.equal(100, list.size());
     Kamayan.times(100, (i) => { assert.equal(42, list.get(i)); });
 });
 
-test.skip("index get cannot go outside the bounds of the array", function() {
+test("index get cannot go outside the bounds of the array", function() {
     var list = new ArrayList();
     assert.throws(() => { list.get(-1); }, IndexError);
     assert.throws(() => { list.get(-42); }, IndexError);
@@ -132,7 +132,7 @@ test.skip("index get cannot go outside the bounds of the array", function() {
     assert.throws(() => { list.get(1); }, IndexError);
 });
 
-test.skip("index get can retrieve any element", function() {
+test("index get can retrieve any element", function() {
     var list = new ArrayList().add(1).add(2).add(42).add(43);
     assert.equal(1, list.get(0));
     assert.equal(2, list.get(1));
@@ -140,18 +140,18 @@ test.skip("index get can retrieve any element", function() {
     assert.equal(43, list.get(3));
 });
 
-test.skip("index set exists", function() {
+test("index set exists", function() {
     assert.methodExists(ArrayList, "set", 2);
 });
 
-test.skip("index set cannot use negative number", function() {
+test("index set cannot use negative number", function() {
     var list = new ArrayList();
     assert.throws(() => { list.set(-1, 1); }, IndexError);
     assert.throws(() => { list.set(-42, 1); }, IndexError);
     assert.equal(0, list.size());
 });
 
-test.skip("index set can use existing indexes", function() {
+test("index set can use existing indexes", function() {
     var list = new ArrayList().add(0).add(1).add(2).add(3);
     list.set(0, 1);
     list.set(1, 2);
@@ -160,7 +160,7 @@ test.skip("index set can use existing indexes", function() {
     Kamayan.times(4, (i) => { assert.equal(i + 1, list.get(i)); });
 });
 
-test.skip("index set can add elements to the end of the list", function() {
+test("index set can add elements to the end of the list", function() {
     var list = new ArrayList();
     list.set(0, 1);
     list.set(1, 2);
@@ -169,7 +169,7 @@ test.skip("index set can add elements to the end of the list", function() {
     Kamayan.times(4, (i) => { assert.equal(i + 1, list.get(i)); });
 });
 
-test.skip("index set can use distant indexes", function() {
+test("index set can use distant indexes", function() {
     var list = new ArrayList();
     list.set(42, 1);
     list.set(142, 2);
@@ -182,7 +182,7 @@ test.skip("index set can use distant indexes", function() {
     assert.equal(3, list.get(1042));
 });
 
-test.skip("index set with the next available index updates the size", function() {
+test("index set with the next available index updates the size", function() {
     var list = new ArrayList();
     list.set(0, 1);
     assert.equal(1, list.size());
@@ -194,7 +194,7 @@ test.skip("index set with the next available index updates the size", function()
     assert.equal(4, list.size());
 });
 
-test.skip("index set with existing indexes doesnt update the size", function() {
+test("index set with existing indexes doesnt update the size", function() {
     var list = new ArrayList().add(0).add(1).add(2).add(3);
     list.set(0, 1);
     assert.equal(4, list.size());
@@ -206,7 +206,7 @@ test.skip("index set with existing indexes doesnt update the size", function() {
     assert.equal(4, list.size());
 });
 
-test.skip("index set with distant indexes updates the size", function() {
+test("index set with distant indexes updates the size", function() {
     var list = new ArrayList();
     list.set(42, 1);
     assert.equal(43, list.size());
@@ -216,18 +216,18 @@ test.skip("index set with distant indexes updates the size", function() {
     assert.equal(1043, list.size());
 });
 
-test.skip("set returns null if the previous value was null", function() {
+test("set returns null if the previous value was null", function() {
     var list = new ArrayList().add(null);
     assert.isNull(list.set(0, 42));
 });
 
-test.skip("set returns null if the index is beyond the current size", function() {
+test("set returns null if the index is beyond the current size", function() {
     var list = new ArrayList();
     assert.isNull(list.set(0, 42));
     assert.isNull(list.set(42, 43));
 });
 
-test.skip("set returns the previous value", function() {
+test("set returns the previous value", function() {
     var list = new ArrayList().add(1).add(2).add(3);
     assert.equal(1, list.set(0, 42));
     assert.equal(42, list.set(0, 43));
@@ -235,11 +235,11 @@ test.skip("set returns the previous value", function() {
     assert.equal(3, list.set(2, 45));
 });
 
-test.skip("delete exists", function() {
+test("delete exists", function() {
     assert.methodExists(ArrayList, "delete", 1);
 });
 
-test.skip("delete cannot delete outside the bounds of the array list", function() {
+test("delete cannot delete outside the bounds of the array list", function() {
     var list = new ArrayList().add(1).add(2).add(3);
     assert.throws(() => { list.delete(-1); }, IndexError);
     assert.throws(() => { list.delete(-42); }, IndexError);
@@ -247,14 +247,14 @@ test.skip("delete cannot delete outside the bounds of the array list", function(
     assert.throws(() => { list.delete(42); }, IndexError);
 });
 
-test.skip("delete removes the element", function() {
+test("delete removes the element", function() {
     var list = new ArrayList().add(1).add(2).add(3);
     list.delete(1);
     assert.equal(1, list.get(0));
     assert.equal(3, list.get(1));
 });
 
-test.skip("delete updates the size", function() {
+test("delete updates the size", function() {
     var list = new ArrayList().add(1).add(2).add(3);
     list.delete(1);
     assert.equal(2, list.size());
@@ -264,21 +264,21 @@ test.skip("delete updates the size", function() {
     assert.equal(0, list.size());
 });
 
-test.skip("delete returns the element at the index", function() {
+test("delete returns the element at the index", function() {
     var list = new ArrayList().add(1).add(2).add(3);
     assert.equal(1, list.delete(0));
     assert.equal(3, list.delete(1));
     assert.equal(2, list.delete(0));
 });
 
-test.skip("delete can be called a lot", function() {
+test("delete can be called a lot", function() {
     var list = new ArrayList();
     Kamayan.times(100, () => { list.add(42); });
     Kamayan.times(100, () => { list.delete(0); });
     assert.equal(0, list.size());
 });
 
-test.skip("delete can delete from a full array", function() {
+test("delete can delete from a full array", function() {
     var list = new ArrayList();
     var internalArray = list._array;
     list._size = internalArray.size();
@@ -287,7 +287,7 @@ test.skip("delete can delete from a full array", function() {
     assert.equal(9, list.size());
 });
 
-test.skip("delete doesnt leave deleted elements in the array", function() {
+test("delete doesnt leave deleted elements in the array", function() {
     var list = new ArrayList();
     var internalArray = list._array;
     list._size = internalArray.size();
