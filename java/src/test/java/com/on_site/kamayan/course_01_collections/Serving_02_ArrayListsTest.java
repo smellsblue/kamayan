@@ -47,7 +47,6 @@ import org.junit.Test;
  *   +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
  */
 public class Serving_02_ArrayListsTest extends TestCase {
-    @Ignore("Remove this line to run this test")
     @Test
     public void addIncreasesTheSize() {
         ArrayList list = new ArrayList();
@@ -57,7 +56,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(2, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void addAddsToTheEnd() {
         ArrayList list = new ArrayList();
@@ -67,7 +65,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(43, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void addReturnsThisSoThatItIsChainable() {
         ArrayList list = new ArrayList();
@@ -76,7 +73,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(43, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void prependIncreasesTheSize() {
         ArrayList list = new ArrayList();
@@ -86,7 +82,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(2, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void prependAddsToTheBeginning() {
         ArrayList list = new ArrayList();
@@ -96,7 +91,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(42, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void prependReturnsThisSoThatItIsChainable() {
         ArrayList list = new ArrayList();
@@ -105,7 +99,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(42, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void addAndPrependAreChainableTogether() {
         ArrayList list = new ArrayList();
@@ -116,7 +109,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(43, list.get(3));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void chainedAddAndPrependIncreasesTheSize() {
         ArrayList list = new ArrayList();
@@ -124,7 +116,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(4, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void addCanBeCalledALot() {
         ArrayList list = new ArrayList();
@@ -133,7 +124,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         Kamayan.times(100, (i) -> assertEquals(42, list.get(i)));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void prependCanBeCalledALot() {
         ArrayList list = new ArrayList();
@@ -142,7 +132,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         Kamayan.times(100, (i) -> assertEquals(42, list.get(i)));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void getCannotGoOutsideTheBoundsOfTheArray() {
         ArrayList list = new ArrayList();
@@ -155,7 +144,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void getCanRetrieveAnyElement() {
         ArrayList list = new ArrayList().add(1).add(2).add(42).add(43);
@@ -165,7 +153,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(43, list.get(3));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setCannotUseNegativeNumber() {
         ArrayList list = new ArrayList();
@@ -174,7 +161,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setCanUseExistingIndexes() {
         ArrayList list = new ArrayList().add(0).add(1).add(2).add(3);
@@ -185,7 +171,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         Kamayan.times(4, (i) -> assertEquals(i + 1, list.get(i)));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setCanAddElementsToTheEndOfTheList() {
         ArrayList list = new ArrayList();
@@ -196,7 +181,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         Kamayan.times(4, (i) -> assertEquals(i + 1, list.get(i)));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setCanUseDistantIndexes() {
         ArrayList list = new ArrayList();
@@ -211,7 +195,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(3, list.get(1042));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setWithTheNextAvailableIndexUpdatesTheSize() {
         ArrayList list = new ArrayList();
@@ -225,7 +208,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(4, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setWithExistingIndexesDoesntUpdateTheSize() {
         ArrayList list = new ArrayList().add(0).add(1).add(2).add(3);
@@ -239,7 +221,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(4, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setWithDistantIndexesUpdatesTheSize() {
         ArrayList list = new ArrayList();
@@ -251,14 +232,12 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(1043, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsNullIfThePreviousValueWasNull() {
         ArrayList list = new ArrayList().add(null);
         assertNull(list.set(0, 42));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsNullIfTheIndexIsBeyondTheCurrentSize() {
         ArrayList list = new ArrayList();
@@ -266,7 +245,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertNull(list.set(42, 43));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsThePreviousValue() {
         ArrayList list = new ArrayList().add(1).add(2).add(3);
@@ -276,7 +254,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(3, list.set(2, 45));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteCannotDeleteOutsideTheBoundsOfTheList() {
         ArrayList list = new ArrayList().add(1).add(2).add(3);
@@ -286,7 +263,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> list.delete(42));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteRemovesTheElement() {
         ArrayList list = new ArrayList().add(1).add(2).add(3);
@@ -295,7 +271,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(3, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteUpdatesTheSize() {
         ArrayList list = new ArrayList().add(1).add(2).add(3);
@@ -307,7 +282,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteReturnsTheElementAtTheIndex() {
         ArrayList list = new ArrayList().add(1).add(2).add(3);
@@ -316,7 +290,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(2, list.delete(0));
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteCanBeCalledALot() {
         ArrayList list = new ArrayList();
@@ -325,7 +298,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteCanDeleteFromAFullArray() {
         ArrayList list = new ArrayList();
@@ -336,7 +308,6 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(9, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
     @Test
     public void deleteDoesntLeaveDeletedElementsInTheArray() {
         ArrayList list = new ArrayList();
